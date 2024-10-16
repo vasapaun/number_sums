@@ -1,4 +1,3 @@
-#include "Square.hpp"
 #include "Board.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
