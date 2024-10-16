@@ -1,6 +1,6 @@
 #include "Board.hpp"
 
-Board::Board(std::size_t drawSize, std::size_t squareCount)
+Board::Board(std::size_t drawSize, std::size_t squareCount, sf::Font* font)
 {
     // Calculate size of board squares (in pixels)
     std::size_t squareSize = drawSize / squareCount;
@@ -11,17 +11,10 @@ Board::Board(std::size_t drawSize, std::size_t squareCount)
     {
         for(int j = 0; j < squareCount; j++)
         {
-            Square newSquare{};
-
-            newSquare.setValue(1);
-            newSquare.setIsReal(true);
+            Square newSquare{font};
 
             newSquare.setPosition(sf::Vector2f(j * squareSize, i * squareSize));
             newSquare.setSize(squareSize);
-
-            newSquare.setFillColor(sf::Color(40, 40, 40));
-            newSquare.setOutlineColor(sf::Color::White);
-            newSquare.setOutlineThickness(5.f);
 
             board[i].push_back(newSquare);
         }

@@ -21,7 +21,26 @@ int main(int argc, char** argv)
     sf::Vector2u boardSize = calculateBoardSize(mainWindowSize, OFFSET_PERCENT);
     sf::Vector2u drawOffset = sf::Vector2u((mainWindowSize.x - boardSize.x) / 2, (mainWindowSize.y - boardSize.y) / 2);
 
-    Board gameBoard = Board(boardSize.x, BOARD_DIMENSION);
+    Board gameBoard = Board(boardSize.x, BOARD_DIMENSION, &font);
+
+    sf::Text text;
+
+    // select the font
+    text.setFont(font); // font is a sf::Font
+
+    // set the string to display
+    text.setString("Hello world");
+
+    // set the character size
+    text.setCharacterSize(24); // in pixels, not points!
+
+    // set the color
+    text.setFillColor(sf::Color::Red);
+
+    // set the text style
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    text.setPosition(sf::Vector2f(100.f ,100.f));
 
     while (mainWindow.isOpen())
     {
@@ -33,6 +52,7 @@ int main(int argc, char** argv)
 
         mainWindow.clear(sf::Color(20, 20, 20));
 
+        mainWindow.draw(text);
         gameBoard.draw(&mainWindow, sf::Vector2f(drawOffset));
 
         mainWindow.display();

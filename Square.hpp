@@ -3,11 +3,13 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include <string>
 
 class Square
 {
     private:
+        sf::Text text;
         sf::RectangleShape shape;
         unsigned value;
         bool real;
@@ -16,9 +18,15 @@ class Square
 
         // Constructor
 
-        Square(sf::RectangleShape newShape = sf::RectangleShape(), unsigned newValue = 0, bool newReal = false);
+        Square(sf::Font*,
+               sf::RectangleShape newShape = sf::RectangleShape(),
+               unsigned newValue = 8,
+               bool newReal = false);
 
         // Getters and setters
+
+        sf::Text getText () const { return text; }
+        void setText (sf::Text newText) { text = newText; }
 
         sf::RectangleShape getShape () const { return shape; }
         void setShape (sf::RectangleShape newShape) { shape = newShape; }
@@ -30,7 +38,7 @@ class Square
         void setIsReal (bool newIsReal) { real = newIsReal; }
 
         sf::Vector2f getPosition () const { return shape.getPosition(); }
-        void setPosition (sf::Vector2f newPosition) { shape.setPosition(newPosition); }
+        void setPosition (sf::Vector2f newPosition) { shape.setPosition(newPosition); text.setPosition(newPosition); }
 
         sf::Color getFillColor () const { return shape.getFillColor(); }
         void setFillColor (sf::Color newFillColor) { shape.setFillColor(newFillColor); }
