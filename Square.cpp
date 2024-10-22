@@ -9,7 +9,7 @@ Square::Square(sf::Font* font, sf::RectangleShape newShape, unsigned newValue, b
     shape.setOutlineColor(sf::Color::White);
     shape.setOutlineThickness(5.f);
 
-    text.setString(value);
+    text.setString(std::to_string(value));
     text.setPosition(getPosition());
     text.setFillColor(sf::Color::Red);
     text.setFont(*font);
