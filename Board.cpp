@@ -11,10 +11,10 @@ Board::Board(std::size_t drawSize, std::size_t squareCount, sf::Font* font)
     {
         for(int j = 0; j < squareCount; j++)
         {
-            Square newSquare{font};
+            sf::RectangleShape newShape(sf::Vector2f(squareSize, squareSize));
+            newShape.setPosition(sf::Vector2f(j * squareSize, i * squareSize));
 
-            newSquare.setPosition(sf::Vector2f(j * squareSize, i * squareSize));
-            newSquare.setSize(squareSize);
+            Square newSquare{font, newShape};
 
             board[i].push_back(newSquare);
         }

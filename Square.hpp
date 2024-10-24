@@ -38,7 +38,11 @@ class Square
         void setIsReal (bool newIsReal) { real = newIsReal; }
 
         sf::Vector2f getPosition () const { return shape.getPosition(); }
-        void setPosition (sf::Vector2f newPosition) { shape.setPosition(newPosition); text.setPosition(newPosition); }
+        void setPosition (sf::Vector2f newPosition)
+        { 
+            shape.setPosition(newPosition);
+            text.setPosition(newPosition);
+        }
 
         sf::Color getFillColor () const { return shape.getFillColor(); }
         void setFillColor (sf::Color newFillColor) { shape.setFillColor(newFillColor); }
@@ -61,6 +65,8 @@ class Square
         void drawWithOffset (sf::RenderWindow*, sf::Vector2f);
 
         void move (sf::Vector2f);
+
+        sf::Vector2f getCenter();
 };
 
 #endif
