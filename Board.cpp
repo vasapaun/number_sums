@@ -19,6 +19,7 @@ Board::Board(std::size_t drawSize, std::size_t squareCount, sf::Font* font)
             board[i].push_back(newSquare);
         }
     }
+
 }
 
 void Board::draw(sf::RenderWindow* window, sf::Vector2f offset)
@@ -27,6 +28,7 @@ void Board::draw(sf::RenderWindow* window, sf::Vector2f offset)
     {
         for(auto sq : row)
         {
+            if (sq == cursor.selected)
             sq.drawWithOffset(window, offset);
         }
     }

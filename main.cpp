@@ -1,8 +1,7 @@
 #include "Board.hpp"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
-#define BOARD_DIMENSION (10)
+#define BOARD_DIMENSION (5)
 #define OFFSET_PERCENT (10)
 
 void handleEvent (sf::Event* event, sf::Window* window);

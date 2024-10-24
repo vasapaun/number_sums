@@ -12,7 +12,7 @@ Square::Square(sf::Font* font, sf::RectangleShape newShape, unsigned newValue, b
     text.setString(std::to_string(value));
     text.setFillColor(sf::Color::White);
     text.setFont(*font);
-    text.setCharacterSize(40);
+    text.setCharacterSize(getSize().x / 2); // Magic, works fine
 
     // Position text to center of square
     sf::FloatRect textBounds = text.getLocalBounds();
@@ -20,8 +20,6 @@ Square::Square(sf::Font* font, sf::RectangleShape newShape, unsigned newValue, b
     const sf::Vector2f box(getSize());
     text.setOrigin((bounds.width - box.x) / 2 + bounds.left, (bounds.height - box.y) / 2 + bounds.top);
     text.setPosition(getCenter());
-
-    // text.setStyle(sf::Text::Bold);
 }
 
 std::string Square::toString()

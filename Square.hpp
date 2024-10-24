@@ -20,7 +20,7 @@ class Square
 
         Square(sf::Font*,
                sf::RectangleShape newShape = sf::RectangleShape(),
-               unsigned newValue = 8,
+               unsigned newValue = 25,
                bool newReal = false);
 
         // Getters and setters
