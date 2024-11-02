@@ -2,6 +2,7 @@
 
 Board::Board(std::size_t drawSize, std::size_t squareCount, sf::Font* font)
 {
+
     // Calculate size of board squares (in pixels)
     std::size_t squareSize = drawSize / squareCount;
 
@@ -20,15 +21,20 @@ Board::Board(std::size_t drawSize, std::size_t squareCount, sf::Font* font)
         }
     }
 
+    cursor = Cursor(board[0][0]);
+
 }
 
 void Board::draw(sf::RenderWindow* window, sf::Vector2f offset)
 {
+    
     for(auto row : board)
     {
         for(auto sq : row)
         {
-            if (sq == cursor.selected)
+            if (sq == cursor.getSelected())
+            {
+            }
             sq.drawWithOffset(window, offset);
         }
     }

@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 #define BOARD_DIMENSION (5)
-#define OFFSET_PERCENT (10)
+#define OFFSET_PERCENT (20)
 
 void handleEvent (sf::Event* event, sf::Window* window);
 sf::Vector2u calculateBoardSize (sf::Vector2u windowSize, unsigned offsetPercent);

@@ -2,6 +2,14 @@
 
 #include <format>
 
+Square::Square() 
+{
+    text = sf::Text();
+    shape = sf::RectangleShape();
+    value = 0;
+    real = false;
+}
+
 Square::Square(sf::Font* font, sf::RectangleShape newShape, unsigned newValue, bool newReal)
     : shape(newShape), value(newValue), real(newReal)
 {
@@ -20,6 +28,10 @@ Square::Square(sf::Font* font, sf::RectangleShape newShape, unsigned newValue, b
     const sf::Vector2f box(getSize());
     text.setOrigin((bounds.width - box.x) / 2 + bounds.left, (bounds.height - box.y) / 2 + bounds.top);
     text.setPosition(getCenter());
+}
+
+bool Square::operator==(const Square& other) const {
+    return (getPosition() == other.getPosition());
 }
 
 std::string Square::toString()

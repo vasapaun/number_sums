@@ -6,6 +6,13 @@
 class Cursor {
     private:
         Square selected;
+
+    public:
+        Cursor();
+        Cursor(Square);
+
+        Square getSelected() { return selected; }
+        void select(Square newSelection) { selected = newSelection; }
 };
 
 #endif

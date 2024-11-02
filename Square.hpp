@@ -1,5 +1,4 @@
-#ifndef SQUARE_HPP
-#define SQUARE_HPP
+#pragma once
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -18,10 +17,15 @@ class Square
 
         // Constructor
 
+
+        Square();
+
         Square(sf::Font*,
                sf::RectangleShape newShape = sf::RectangleShape(),
                unsigned newValue = 25,
                bool newReal = false);
+
+        bool operator==(const Square& other) const;
 
         // Getters and setters
 
@@ -68,5 +72,3 @@ class Square
 
         sf::Vector2f getCenter();
 };
-
-#endif
